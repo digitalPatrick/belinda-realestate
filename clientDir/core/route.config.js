@@ -13,9 +13,26 @@
            templateUrl: 'home/home.html',
            controller: 'homeCtrl as vm'
            })
-       .when('/project', {
-           
-       });
+           .when('/contact', {
+               templateUrl: 'singleview/contact.html',
+               controller: 'viewCtrl as vm'
+           })
+           .when('/services', {
+                templateUrl: 'singleview/services.html',
+                controller: 'viewCtrl as vm'
+           })
+           .when('/terms', {
+                templateUrl: 'singleview//terms.html',
+                controller: 'viewCtrl as vm'
+           })
+            .when('/privacy', {
+                templateUrl: 'singleview//privacy.html',
+                controller: 'viewCtrl as vm'
+           })
+            .when('/faq', {
+                templateUrl: 'singleview/faq.html',
+                controller: 'viewCtrl as vm'
+            });
        
        $routeProvider.otherwise({redirectTo: '/'});
        

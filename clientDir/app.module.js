@@ -4,6 +4,7 @@
     
     angular.module('app', [
         'ngRoute',
-        'app.home'
+        'app.home',
+        'app.singleview'
     ]);
 })();
