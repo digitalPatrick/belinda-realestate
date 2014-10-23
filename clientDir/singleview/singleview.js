@@ -6,13 +6,14 @@
     .module('app.singleview')
     .controller('viewCtrl', viewCtrl);
     
-    viewCtrl.$inject = [];
+    viewCtrl.$inject = ['angularLoad'];
     
-    function viewCtrl() {
+    function viewCtrl(angularLoad) {
         
      var vm = this;   
         
         vm.name = 'leon';
+        angularLoad.loadScript('javascripts/scripts.js')
     }
     
 })();

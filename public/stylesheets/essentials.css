@@ -2218,7 +2218,6 @@ h4.modal-title {
 	position:relative;
 }
 .owl-carousel.featured .owl-featured-item a.figure>img {
-	height:auto !important;
 	width:100% !important;
 	max-width: 100% !important;
 	vertical-align:top;
