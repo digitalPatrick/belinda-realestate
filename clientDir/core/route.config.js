@@ -11,7 +11,8 @@
        
        $routeProvider.when('/', {
            templateUrl: 'home/home.html',
-           controller: 'homeCtrl as vm'
+           controller: 'homeCtrl',
+           controllerAS: 'vm'
            })
            .when('/contact', {
                templateUrl: 'singleview/contact.html',
@@ -19,22 +20,23 @@
            })
            .when('/services', {
                 templateUrl: 'singleview/services.html',
-                controller: 'viewCtrl as vm'
+                controller: 'viewCtrl'
            })
            .when('/terms', {
                 templateUrl: 'singleview//terms.html',
-                controller: 'viewCtrl as vm'
+                controller: 'viewCtrl'
            })
             .when('/privacy', {
                 templateUrl: 'singleview//privacy.html',
-                controller: 'viewCtrl as vm'
+                controller: 'viewCtrl'
            })
             .when('/faq', {
                 templateUrl: 'singleview/faq.html',
-                controller: 'viewCtrl as vm'
+                controller: 'viewCtrl'
             })
            .when('/agent/:userName', {
-               templateUrl: 'singleview/faq.html'
+               templateUrl: 'singleview/faq.html',
+               controller: 'viewCtrl'
            });
        
        $routeProvider.otherwise({redirectTo: '/'});
