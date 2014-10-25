@@ -19,8 +19,8 @@
         function activate() {
 //            Using a resolver on all routes or dataservice.ready in every controller
                 var promises = [getFeaturedAgents(), getLatestApartments()];
-//            return dataservice.ready(promises).then(function(){
-            return $q.all(promises).then(function() {
+            return dataservice.ready(promises).then(function(){
+            //return $q.all(promises).then(function() {
                 logger.info('Activated data View');
             });
         }

@@ -32,7 +32,10 @@
             .when('/faq', {
                 templateUrl: 'singleview/faq.html',
                 controller: 'viewCtrl as vm'
-            });
+            })
+           .when('/agent/:userName', {
+               templateUrl: 'singleview/faq.html'
+           });
        
        $routeProvider.otherwise({redirectTo: '/'});
        

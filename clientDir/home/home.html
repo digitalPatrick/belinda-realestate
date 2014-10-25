@@ -73,7 +73,7 @@
         <div class="owl-featured-item">
             <a class="figure" href="/agentname">
                 <span><i class="fa fa-plus"></i></span>
-                <img alt="" ng-src={{apartment.mainImg}} height="300" width="260" />
+                <img alt="" ng-src={{apartment.mainImg}} height="270" width="230"/>
             </a>
             <div class="owl-featured-detail">
                 <a class="featured-title" href="page-article.html">{{apartment.description}}</a>
@@ -89,12 +89,12 @@
 <div class="owl-carousel featured" data-plugin-options='{"itemsDesktop":[1199,4], "itemsDesktopSmall":[980,3], "itemsTablet":[684,2], "itemsMobile":[490,1], "singleItem": false, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false}'>
     <div data-ng-repeat="agent in vm.featuredAgents">
         <div class="owl-featured-item">
-            <a class="figure" href="/agentName/houseId">
+            <a class="figure" ng-href="/agent/{{agent.userName}}">
                 <span><i class="fa fa-plus"></i></span>
-                <img alt="" ng-src={{agent.imgUrl}} height="330" width="230" />
+                <img alt="" ng-src={{agent.imgUrl}} height="300" width="230" />
             </a>
             <div class="owl-featured-detail">
-                <a class="featured-title" href="page-article.html">{{agent.name}} </a>
+                <a class="featured-title" ng-href="/agent/{{agent.userName}}">{{agent.name}} </a>
             </div>
         </div>
     </div>
@@ -220,12 +220,12 @@
         <!-- tabs -->
         <ul class="nav nav-tabs nav-justified">
             <li class="active">
-                <a href="#tab_1" data-toggle="tab">
+                <a href="/#tab_1" data-toggle="tab">
                     Popular
                 </a>
             </li>
             <li>
-                <a href="#tab_2" data-toggle="tab">
+                <a href="/#tab_2" data-toggle="tab">
                     Recent
                 </a>
             </li>

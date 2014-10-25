@@ -66,9 +66,9 @@
 
         function getFeaturedAgents(){
             var featuredAgents = [
-                {name: 'Belinda Anglin.', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/belinda.jpg'},
-                {name: 'Leon Patrick', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/leoceo.jpg'},
-                {name: 'Dianna Williams', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/diana.jpg'},
+                {name: 'Belinda Anglin.', userName: 'belindaloveshomes', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/belinda.jpg'},
+                {name: 'Leon Patrick', userName: 'DigitalPatrick', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/leoceo.jpg'},
+                {name: 'Dianna Williams', userName: 'MadeToWrite', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/diana.jpg'},
                 {name: 'Mark Ruffalo', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person1.jpg'},
                 {name: 'Scarlett Johansson', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person2.jpg'},
                 {name: 'Jeremy Renner', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/catperson.jpg'},
