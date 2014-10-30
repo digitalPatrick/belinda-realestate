@@ -12,9 +12,6 @@
         var primePromise;
 
         var service = {
-            getAvengersCast: getAvengersCast,
-            getAvengerCount: getAvengerCount,
-            getAvengers: getAvengers,
             getFeaturedAgents: getFeaturedAgents,
             getLatestApartments: getLatestApartments,
             ready: ready

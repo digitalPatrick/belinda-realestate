@@ -14,6 +14,7 @@
         vm.featuredAgents = [];
         vm.latestApartments = [];
 
+
         activate();
 
         function activate() {
@@ -39,7 +40,7 @@
             });
         }
 
-        /** load scripts and css here **/
+        /**load scripts and css here **/
         angularLoad.loadScript('javascripts/scripts.js')
     }
 })();

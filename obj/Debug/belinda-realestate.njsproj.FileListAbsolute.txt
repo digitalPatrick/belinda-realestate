@@ -4,20 +4,9 @@ C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\clientDir\app.module
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\routes\index.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\routes\users.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\app.module.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\core\config.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\core\constants.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\core\core.module.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\core\dataservice.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\layout\layout.module.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\layout\shell.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\layout\sidebar.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\exception\exception-handler.provider.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\exception\exception.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\exception\exception.module.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\logger\logger.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\logger\logger.module.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\router\routehelper.js
-C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\client\app\blocks\router\router.module.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\clientDir\core\config.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\clientDir\core\constants.js
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\clientDir\core\core.module.js
@@ -1747,3 +1736,4 @@ C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\node_modules\serve-f
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\node_modules\serve-favicon\package.json
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\node_modules\serve-favicon\README.md
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\bin\www

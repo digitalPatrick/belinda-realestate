@@ -73,7 +73,7 @@
         <div class="owl-featured-item">
             <a class="figure" href="/agentname">
                 <span><i class="fa fa-plus"></i></span>
-                <img alt="" ng-src={{apartment.mainImg}} height="270" width="230"/>
+                <img alt="" ng-src={{apartment.mainImg}} height="270" width="230" />
             </a>
             <div class="owl-featured-detail">
                 <a class="featured-title" href="page-article.html">{{apartment.description}}</a>
@@ -87,7 +87,7 @@
 <!-- FEATURED AGENTS -->
 <h2 class="owl-featured"><strong>Top</strong> Real Estate Agents</h2>
 <div class="owl-carousel featured" data-plugin-options='{"itemsDesktop":[1199,4], "itemsDesktopSmall":[980,3], "itemsTablet":[684,2], "itemsMobile":[490,1], "singleItem": false, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false}'>
-    <div data-ng-repeat="agent in vm.featuredAgents">
+    <div ng-repeat="agent in vm.featuredAgents">
         <div class="owl-featured-item">
             <a class="figure" ng-href="/agent/{{agent.userName}}">
                 <span><i class="fa fa-plus"></i></span>

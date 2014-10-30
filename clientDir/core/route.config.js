@@ -11,8 +11,7 @@
        
        $routeProvider.when('/', {
            templateUrl: 'home/home.html',
-           controller: 'homeCtrl',
-           controllerAS: 'vm'
+           controller: 'homeCtrl as vm'
            })
            .when('/contact', {
                templateUrl: 'singleview/contact.html',
