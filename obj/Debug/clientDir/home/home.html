@@ -1,0 +1,360 @@
+<div>
+
+<!-- FLEX SLIDER -->
+<div class="slider">
+
+    <div class="flexslider flexFull">
+        <ul class="slides height-400"><!-- height-150, height-200 , height-250 ... height-600 -->
+
+            <li>
+                <div style="background: transparent url(assets/images/demo/wall.jpg) no-repeat top center;">
+                    <div class="container">
+                        <div class="box fullbox">
+                            <h3 class="subTitle">Unique and Clean</h3>
+                            <p>Nothing is left to chance. Every detail of this theme was precisely designed and implemented by experienced team.</p>
+                            <p><a href="#purchase" class="btn btn-small btn-primary">Purchase Now</a><br />
+                        </div>
+                        <img class="appear-animation fadeInUp img-responsive margin-top10 pull-right hidden-xs" src="assets/images/demo/desktop.png" height="330" alt="" />
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div style="background: transparent url(assets/images/demo/blue.jpg) no-repeat top center;">
+                    <div class="container">
+                        <div class="box fullbox right">
+                            <h3>Multipurpose</h3>
+                            <p>Unique, yet universal layout allows you to run nearly any type of website on this theme.</p>
+                            <p><a href="#purchase" class="btn btn-small btn-primary">Purchase Now</a><br />
+                        </div>
+                        <img class="img-responsive margin-top10 pull-left hidden-xs" src="images/house1.jpg" height="330" alt="" />
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div style="background: transparent url(images/lanscape.jpg) no-repeat top center;">
+                    <div class="container">
+                        <div class="box right">
+                            <h3>Fully Responsive</h3>
+                            <p>Looks perfectly both on desktop and mobile screens. Reach your customers anywhere they are!</p>
+                            <p><a href="#purchase" class="btn btn-small btn-primary">Purchase Now</a><br />
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var flex_options = {
+            animation: "fade",
+            slideshowSpeed: 7000,           /* Speed of the slideshow cycling, in milliseconds */
+            animationSpeed: 600,
+            pauseOnAction: true,
+            controlNav: true,               /* Navigation for paging control of each clide? Note: Leave true for manualControls usage */
+            directionNav: true
+        }
+    </script>
+
+</div>
+<!-- /FLEX SLIDER -->
+
+<!-- POPULAR -->
+<section>
+<div class="container">
+
+
+<!-- FEATURED PRODUCTS -->
+<h2 class="owl-featured"><strong>Latest</strong> Appartments</h2>
+<div class="owl-carousel featured" data-plugin-options='{"itemsDesktop":[1199,4], "itemsDesktopSmall":[980,3], "itemsTablet":[684,2], "itemsMobile":[490,1], "singleItem": false, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false}'>
+    <div ng-repeat="apartment in vm.latestApartments">
+        <div class="owl-featured-item">
+            <a class="figure" href="/agentname">
+                <span><i class="fa fa-plus"></i></span>
+                <img alt="" ng-src={{apartment.mainImg}} height="270" width="230"/>
+            </a>
+            <div class="owl-featured-detail">
+                <a class="featured-title" href="page-article.html">{{apartment.description}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="half-margins invisible" />
+
+<!-- FEATURED AGENTS -->
+<h2 class="owl-featured"><strong>Top</strong> Real Estate Agents</h2>
+<div class="owl-carousel featured" data-plugin-options='{"itemsDesktop":[1199,4], "itemsDesktopSmall":[980,3], "itemsTablet":[684,2], "itemsMobile":[490,1], "singleItem": false, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false}'>
+    <div data-ng-repeat="agent in vm.featuredAgents">
+        <div class="owl-featured-item">
+            <a class="figure" ng-href="/agent/{{agent.userName}}">
+                <span><i class="fa fa-plus"></i></span>
+                <img alt="" ng-src={{agent.imgUrl}} height="300" width="230" />
+            </a>
+            <div class="owl-featured-detail">
+                <a class="featured-title" ng-href="/agent/{{agent.userName}}">{{agent.name}} </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /FEATURED AGENTS -->
+
+<hr class="half-margins invisible" />
+
+<!-- Banner -->
+<a class="block clearfix" href="#purchase" target="_blank" rel="nofollow">
+    <img class="img-responsive" src="assets/images/big_banner.png" alt="">
+</a><!-- /Banner -->
+
+<hr class="half-margins invisible" />
+
+<div class="row">
+
+<div class="col-md-9">
+
+    <!-- More News -->
+    <h4><strong>Apartments</strong> Near You!!</h4>
+    <div class="row">
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" ng-src="assets/images/demo/other/thumb_o3.jpg" alt="" />
+                <div class="caption">
+                    <h4>Lorem Ipsum Dolor Sit...</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="/apartments" class="btn btn-default btn-sm" role="button">Read More</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" src="assets/images/demo/other/thumb_o4.jpg" alt="" />
+                <div class="caption">
+                    <h4>Lorem Ipsum Dolor Sit...</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" src="assets/images/demo/other/thumb_o1.jpg" alt="" />
+                <div class="caption">
+                    <h4>Lorem Ipsum Dolor Sit...</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /More News -->
+
+    <hr class="half-margins invisible" />
+
+    <!-- More News -->
+    <h4><strong>Blog</strong> Post</h4>
+    <div class="row">
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" src="assets/images/demo/other/thumb_o4.jpg" alt="" />
+                <div class="caption">
+                    <h4>Lorem Ipsum Dolor Sit...</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" src="assets/images/demo/other/thumb_o2.jpg" alt="" />
+                <div class="caption">
+                    <h4>Lorem Ipsum Dolor Sit...</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" src="assets/images/demo/other/thumb_o1.jpg" alt="" />
+                <div class="caption">
+                    <h4>Lorem Ipsum Dolor Sit...</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /More News -->
+
+</div>
+
+<div class="col-md-3">
+
+    <h4><strong>Apartments</strong> Near?</h4>
+    <form method="get" action="#" class="input-group nopadding">
+        <input type="text" class="form-control" name="s" value="" placeholder="enter ZIP code or City">
+								<span class="input-group-btn">
+									<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+								</span>
+    </form>
+
+
+    <hr class="half-margins invisible" />
+
+
+    <!-- twitter plugin -->
+    <div class="tabs nomargin">
+
+        <!-- tabs -->
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active">
+                <a href="/#tab_1" data-toggle="tab">
+                    Popular
+                </a>
+            </li>
+            <li>
+                <a href="/#tab_2" data-toggle="tab">
+                    Recent
+                </a>
+            </li>
+        </ul>
+
+        <!-- tabs content -->
+        <div class="tab-content">
+
+            <!-- POPULAR -->
+            <div id="tab_1" class="tab-pane active">
+
+                <div class="row tab-post"><!-- post -->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="page-article.html">
+                            <img src="assets/images/demo/portfolio/thumb/a1.jpg" width="50" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <a href="page-article.html" class="tab-post-link">Maecenas metus nulla</a>
+                        <small>June 29 2014</small>
+                    </div>
+                </div><!-- /post -->
+
+                <div class="row tab-post"><!-- post -->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="page-article.html">
+                            <img src="assets/images/demo/portfolio/thumb/a2.jpg" width="50" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <a href="page-article.html" class="tab-post-link">Curabitur pellentesque neque eget diam</a>
+                        <small>June 29 2014</small>
+                    </div>
+                </div><!-- /post -->
+
+                <div class="row tab-post"><!-- post -->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="page-article.html">
+                            <img src="assets/images/demo/portfolio/thumb/a3.jpg" width="50" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <a href="page-article.html" class="tab-post-link">Nam et lacus neque. Ut enim massa, sodales</a>
+                        <small>June 29 2014</small>
+                    </div>
+                </div><!-- /post -->
+
+            </div>
+            <!-- /POPULAR -->
+
+
+            <!-- RECENT -->
+            <div id="tab_2" class="tab-pane">
+
+                <div class="row tab-post"><!-- post -->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="page-article.html">
+                            <img src="assets/images/demo/portfolio/thumb/a3.jpg" width="50" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <a href="page-article.html" class="tab-post-link">Curabitur pellentesque neque eget diam</a>
+                        <small>June 29 2014</small>
+                    </div>
+                </div><!-- /post -->
+
+                <div class="row tab-post"><!-- post -->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="page-article.html">
+                            <img src="assets/images/demo/portfolio/thumb/a4.jpg" width="50" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <a href="page-article.html" class="tab-post-link">Maecenas metus nulla</a>
+                        <small>June 29 2014</small>
+                    </div>
+                </div><!-- /post -->
+
+                <div class="row tab-post"><!-- post -->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="page-article.html">
+                            <img src="assets/images/demo/portfolio/thumb/a2.jpg" width="50" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <a href="page-article.html" class="tab-post-link">Quisque ut nulla at nunc</a>
+                        <small>June 29 2014</small>
+                    </div>
+                </div><!-- /post -->
+            </div>
+            <!-- /RECENT -->
+
+        </div>
+
+    </div>
+    <!-- twitter plugin -->
+
+    <hr class="half-margins invisible" />
+
+    <!-- FACEBOOK -->
+    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fstepofweb&amp;width=263&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:263px; height:258px;"></iframe>
+
+    <!--social buttons-->
+    <a href="#" class="social fa fa-facebook"></a>
+    <a href="#" class="social fa fa-twitter"></a>
+    <a href="#" class="social fa fa-google-plus"></a>
+    <a href="#" class="social fa fa-linkedin"></a>
+    <a href="#" class="social fa fa-pinterest"></a>
+    <a href="#" class="social fa fa-youtube-square"></a>
+    <!--
+    <a href="#" class="social fa fa-vimeo-square"></a>
+    <a href="#" class="social fa fa-flickr"></a>
+    <a href="#" class="social fa fa-skype"></a>
+    <a href="#" class="social fa fa-rss"></a>
+    <a href="#" class="social fa fa-envelope"></a>
+    <a href="#" class="social default fa fa-cog"></a>
+    -->
+
+    <hr class="half-margins invisible" />
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+</section>
+<!-- /POPULAR -->
+</div>
