@@ -11,8 +11,7 @@
        
        $routeProvider.when('/', {
            templateUrl: 'home/home.html',
-           controller: 'homeCtrl',
-           controllerAS: 'vm'
+           controller: 'homeCtrl as vm'
            })
            .when('/contact', {
                templateUrl: 'singleview/contact.html',
@@ -20,11 +19,11 @@
            })
            .when('/services', {
                 templateUrl: 'singleview/services.html',
-                controller: 'viewCtrl'
+                controller: 'viewCtrl as vm'
            })
            .when('/terms', {
                 templateUrl: 'singleview//terms.html',
-                controller: 'viewCtrl'
+                controller: 'viewCtrl as vm'
            })
             .when('/privacy', {
                 templateUrl: 'singleview//privacy.html',
