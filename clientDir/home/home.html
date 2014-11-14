@@ -73,7 +73,7 @@
         <div class="owl-featured-item">
             <a class="figure" href="/agentname">
                 <span><i class="fa fa-plus"></i></span>
-                <img alt="" ng-src={{apartment.mainImg}} height="270" width="230" />
+                <img alt="" ng-src={{apartment.mainImg}} height="270"  />
             </a>
             <div class="owl-featured-detail">
                 <a class="featured-title" href="page-article.html">{{apartment.description}}</a>
@@ -91,7 +91,7 @@
         <div class="owl-featured-item">
             <a class="figure" ng-href="/agent/{{agent.userName}}">
                 <span><i class="fa fa-plus"></i></span>
-                <img alt="" ng-src={{agent.imgUrl}} height="300" width="230" />
+                <img alt="" ng-src={{agent.imgUrl}} height="300" width="230"/>
             </a>
             <div class="owl-featured-detail">
                 <a class="featured-title" ng-href="/agent/{{agent.userName}}">{{agent.name}} </a>
@@ -117,10 +117,9 @@
     <!-- More News -->
     <h4><strong>Apartments</strong> Near You!!</h4>
     <div class="row">
-
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-4 col-md-4" ng-repeat="apartment in vm.latestApartments | limitTo: 3">
             <div class="thumbnail">
-                <img class="img-responsive" ng-src="assets/images/demo/other/thumb_o3.jpg" alt="" />
+                <img class="img-responsive" ng-src={{apartment.mainImg}} alt="" />
                 <div class="caption">
                     <h4>Lorem Ipsum Dolor Sit...</h4>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
@@ -128,65 +127,17 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-                <img class="img-responsive" src="assets/images/demo/other/thumb_o4.jpg" alt="" />
-                <div class="caption">
-                    <h4>Lorem Ipsum Dolor Sit...</h4>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-                <img class="img-responsive" src="assets/images/demo/other/thumb_o1.jpg" alt="" />
-                <div class="caption">
-                    <h4>Lorem Ipsum Dolor Sit...</h4>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
-                </div>
-            </div>
-        </div>
-
     </div>
     <!-- /More News -->
 
     <hr class="half-margins invisible" />
 
-    <!-- More News -->
+    <!-- Blogs -->
     <h4><strong>Blog</strong> Post</h4>
     <div class="row">
-
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-4 col-md-4" ng-repeat="agent in vm.featuredAgents|limitTo:3">
             <div class="thumbnail">
-                <img class="img-responsive" src="assets/images/demo/other/thumb_o4.jpg" alt="" />
-                <div class="caption">
-                    <h4>Lorem Ipsum Dolor Sit...</h4>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-                <img class="img-responsive" src="assets/images/demo/other/thumb_o2.jpg" alt="" />
-                <div class="caption">
-                    <h4>Lorem Ipsum Dolor Sit...</h4>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                    <p><a href="page-article.html" class="btn btn-default btn-sm" role="button">Read More</a></p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-                <img class="img-responsive" src="assets/images/demo/other/thumb_o1.jpg" alt="" />
+                <img class="img-responsive" ng-src={{agent.imgUrl}} alt="" />
                 <div class="caption">
                     <h4>Lorem Ipsum Dolor Sit...</h4>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>

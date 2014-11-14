@@ -3003,3 +3003,5 @@ C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\obj\Debug\public\lib
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\obj\Debug\public\lib\modernizr\test\caniuse_files\Windsong-webfont.svg
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\obj\Debug\public\lib\modernizr\test\js\basic.html
 C:\Users\Leon\Documents\GitHub\belinda-realestate\obj\Debug\obj\Debug\public\lib\modernizr\test\qunit\qunit.css
+C:\Github\belinda-realestate\obj\Debug\belinda-realestate.njsprojResolveAssemblyReference.cache
+C:\Github\belinda-realestate\bin\Microsoft.NodejsTools.WebRole.dll

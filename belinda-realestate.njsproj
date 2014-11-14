@@ -18,10 +18,13 @@
   <ItemGroup>
     <Content Include="bin\www" />
     <Content Include="bower.json" />
+    <Content Include="clientDir\AgentLandingPage\agent.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
     <Content Include="clientDir\index.html" />
+    <Compile Include="clientDir\AgentLandingPage\agent.js" />
+    <Compile Include="clientDir\AgentLandingPage\agent.module.js" />
     <Compile Include="clientDir\app.module.js" />
     <Content Include="public\favicon.ico" />
     <Compile Include="routes\index.js" />
@@ -2550,6 +2553,7 @@
     <Folder Include="clientDir\core" />
     <Folder Include="clientDir\home" />
     <Folder Include="clientDir\layout" />
+    <Folder Include="clientDir\AgentLandingPage\" />
     <Folder Include="clientDir\singleview" />
     <Folder Include="obj" />
     <Folder Include="obj\Debug" />

@@ -6,6 +6,8 @@
         'ngSanitize',
         'ngResource',
         'angularLoad',
+        'ui.bootstrap',
+        'google-maps'.ns(),
 
         'blocks.exception',
         'blocks.logger'
