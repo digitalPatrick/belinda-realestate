@@ -4,7 +4,7 @@
     
     angular
     .module('app.singleview', [
-            'google-maps'.ns(),
+  
     ])
     .controller('viewCtrl', viewCtrl);
     
@@ -15,9 +15,6 @@
         
      var vm = this;   
         
-        vm.name = 'leon';
-        vm.map = { center: { latitude: 28.046325, longitude: -82.43074 }, zoom: 15 };
-
         angularLoad.loadScript('javascripts/scripts.js')
     }
     

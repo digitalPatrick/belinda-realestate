@@ -14,8 +14,8 @@
            controller: 'homeCtrl as vm'
            })
            .when('/contact', {
-               templateUrl: 'singleview/contact.html',
-               controller: 'viewCtrl as vm'
+               templateUrl: 'contact/contact.html',
+               controller: 'contactCtrl as vm'
            })
            .when('/services', {
                 templateUrl: 'singleview/services.html',

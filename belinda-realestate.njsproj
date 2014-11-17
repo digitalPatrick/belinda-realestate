@@ -19,6 +19,7 @@
     <Content Include="bin\www" />
     <Content Include="bower.json" />
     <Content Include="clientDir\AgentLandingPage\agent.html" />
+    <Content Include="clientDir\contact\contact.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
@@ -27,6 +28,8 @@
     <Compile Include="clientDir\AgentLandingPage\agent.module.js" />
     <Compile Include="clientDir\app.module.js" />
     <Content Include="public\favicon.ico" />
+    <Compile Include="clientDir\contact\contact.js" />
+    <Compile Include="clientDir\contact\contact.module.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Content Include="views\error.ejs" />
@@ -42,7 +45,6 @@
     <Content Include="clientDir\layout\footer.html" />
     <Content Include="clientDir\layout\header.html" />
     <Compile Include="clientDir\layout\layout.module.js" />
-    <Content Include="clientDir\singleview\contact.html" />
     <Content Include="clientDir\singleview\faq.html" />
     <Content Include="clientDir\singleview\privacy.html" />
     <Content Include="clientDir\singleview\services.html" />
@@ -2554,6 +2556,7 @@
     <Folder Include="clientDir\home" />
     <Folder Include="clientDir\layout" />
     <Folder Include="clientDir\AgentLandingPage\" />
+    <Folder Include="clientDir\contact\" />
     <Folder Include="clientDir\singleview" />
     <Folder Include="obj" />
     <Folder Include="obj\Debug" />
