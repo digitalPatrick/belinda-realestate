@@ -2,7 +2,16 @@
     'use strict';
 
     var core = angular.module('app.core');
-
+    
+    //'GoogleMapApiProvider'.ns() == 'uiGmapGoogleMapApiProvider'
+    core.config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
+        GoogleMapApi.configure({
+            //    key: 'your api key',
+            v: '3.17',
+            libraries: 'weather,geometry,visualization'
+        });
+    }])
+    
     core.config(toastrConfig);
 
     /* @ngInject */

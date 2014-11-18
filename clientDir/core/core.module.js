@@ -5,6 +5,7 @@
        'ngRoute',
         'ngSanitize',
         'ngResource',
+        'ngMessages',
         'angularLoad',
         'ui.bootstrap',
         'google-maps'.ns(),

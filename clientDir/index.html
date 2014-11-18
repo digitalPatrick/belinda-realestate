@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->
 <html data-ng-app="app">
 <!--<![endif]-->
 <head>
+    <base href="/">
     <style>
         /* This helps the ng-show/ng-hide animations start at the right place. */
         /* Since Angular has this but needs to load, this gives us the class early. */
@@ -36,6 +37,7 @@
 
     </script>
 
+    
     <!-- CORE CSS -->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -57,15 +59,16 @@
     <link href="assets/css/header-3.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/footer-default.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+    <link href="stylesheets/mystyles.css" rel="stylesheet" type="text/css" />
 
     <!-- Morenizr -->
     <script src="lib/modernizr/modernizr.js"></script>
-    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-
+    
+    
     <!--[if lte IE 8]>
     <script src="assets/plugins/respond.js"></script>
     <![endif]-->
-<base href="/">
+
 </head>
 
 <body class="smoothscroll" >
@@ -99,6 +102,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>
     <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
     <script src="lib/angular-load/angular-load.min.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
     <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>

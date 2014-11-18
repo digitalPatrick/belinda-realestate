@@ -1,6 +1,6 @@
-﻿(function () {
+(function () {
     'use strict';
 
-    angular.module('app.contact', ['uiGmapgoogle-maps']);
+    angular.module('app.contact', []);
 
 }());

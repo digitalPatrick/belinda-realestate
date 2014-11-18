@@ -22,8 +22,6 @@ html, body {
 	min-height: 100%;
 }
 
-.angular-google-map-container { height: 400px; }
-
 body {
 	color:#666;
 	background-color:#fff;
