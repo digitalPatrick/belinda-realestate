@@ -7,6 +7,7 @@
 
         'app.home',
         'app.contact',
+        'app.agent',
         'app.singleview'
     ]);
 })();

@@ -5,7 +5,8 @@
 (function () {
     'user strict';
 
-   angular.module('app.core').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+   angular.module('app.core')
+   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
        $locationProvider.html5Mode(true);
        
@@ -25,6 +26,10 @@
                 templateUrl: 'singleview//terms.html',
                 controller: 'viewCtrl as vm'
            })
+            .when('/agent/:agentuserName', {
+                  templateUrl: 'agentLandingPage/agent.html',
+                  controller: 'agentCtrl as vm'
+            })                  
             .when('/privacy', {
                 templateUrl: 'singleview//privacy.html',
                 controller: 'viewCtrl'
