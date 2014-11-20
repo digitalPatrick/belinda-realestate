@@ -1,0 +1,21 @@
+[
+    
+    { 
+        "agent": 
+        {
+                {"id": 1234511, "name": 'Belinda Anglin', userName: 'belindaloveshomes', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/belinda.jpg'},
+                {"id": 1234566, "name": 'Leon Patrick', userName: 'DigitalPatrick', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/leoceo.jpg'},
+                {"id": 1234567, name: 'Dianna Williams', userName: 'MadeToWrite', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/diana.jpg'},
+                {"id": 1234561, name: 'Mark Ruffalo', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person1.jpg'},
+                {"id": 1234562, name: 'Scarlett Johansson', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person2.jpg'},
+                {"id": 1234563, name: 'Jeremy Renner', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/catperson.jpg'},
+                {"id": 1234564, name: 'Gwyneth Paltrow', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person2.jpg'},
+                {"id": 1234565, name: 'Samuel L. Jackson', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person1.jpg'},
+                {"id": 1234569, name: 'Paul Bettany', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/catperson.jpg'},
+                {"id": 1234587, name: 'Tom Hiddleston', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person2.jpg'},
+                {"id": 1234534, name: 'Clark Gregg', discription: 'Best ReaEstate agent on the Planet!!', imgUrl: 'images/person1.jpg'}
+        }
+        
+    }
+    
+]
