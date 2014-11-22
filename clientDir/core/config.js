@@ -4,8 +4,8 @@
     var core = angular.module('app.core');
     
     //'GoogleMapApiProvider'.ns() == 'uiGmapGoogleMapApiProvider'
-    core.config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
-        GoogleMapApi.configure({
+    core.config(['uiGmapGoogleMapApiProvider', function (uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
             //    key: 'your api key',
             v: '3.17',
             libraries: 'weather,geometry,visualization'

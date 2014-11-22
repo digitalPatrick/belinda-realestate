@@ -7,8 +7,7 @@
         'ngResource',
         'ngMessages',
         'angularLoad',
-        'ui.bootstrap',
-        'google-maps'.ns(),
+        'uiGmapgoogle-maps',
 
         'blocks.exception',
         'blocks.logger'

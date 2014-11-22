@@ -5,9 +5,9 @@
     angular.module('app.contact')
     .controller('contactCtrl', contactCtrl);
     
-    contactCtrl.$inject = ['angularLoad', 'logger', 'GoogleMapApi'.ns()];
+    contactCtrl.$inject = ['angularLoad', 'logger', 'uiGmapGoogleMapApi'];
 
-    function contactCtrl(angularLoad, logger, GoogleMapApi) {
+    function contactCtrl(angularLoad, logger, uiGmapGoogleMapApi) {
     
         var vm = this;
         vm.lat = 28.046325;
@@ -32,7 +32,7 @@
             return vm.submitted || field.$dirty;
         };
         
-        GoogleMapApi.then(function(maps) {
+        uiGmapGoogleMapApi.then(function(maps) {
             logger.info('Maps Loaded');
         });
 
