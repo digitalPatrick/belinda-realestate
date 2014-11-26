@@ -1,7 +1,7 @@
 (function () { 
 
     'use strict';
-
+    
     angular.module('app.contact')
     .controller('contactCtrl', contactCtrl);
     
@@ -32,11 +32,11 @@
             return vm.submitted || field.$dirty;
         };
         
-        uiGmapGoogleMapApi.then(function(maps) {
+        uiGmapGoogleMapApi.then(function() {
             logger.info('Maps Loaded');
         });
 
-        angularLoad.loadScript('javascripts/scripts.js')
+        angularLoad.loadScript('javascripts/scripts.js');
     }
 
 }());
