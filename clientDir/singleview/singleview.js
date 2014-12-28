@@ -8,14 +8,18 @@
     ])
     .controller('viewCtrl', viewCtrl);
     
-    viewCtrl.$inject = ['angularLoad'];
+    viewCtrl.$inject = ['angularLoad', '$scope', '$location'];
 
     
-    function viewCtrl(angularLoad) {
+    function viewCtrl(angularLoad, $scope, $location) {
         
      var vm = this;   
         
-        angularLoad.loadScript('javascripts/scripts.js')
+     angularLoad.loadScript('javascripts/scripts.js')
+
+     $scope.isActive = function (viewLocation) {
+         return viewLocation === $location.path();
+     };
     }
     
 })();

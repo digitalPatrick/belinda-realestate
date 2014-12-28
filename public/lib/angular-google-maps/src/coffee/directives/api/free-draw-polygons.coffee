@@ -15,12 +15,13 @@ angular.module('uiGmapgoogle-maps.directives.api')
       scope:
         polygons: '='
         draw: '='
+        revertmapoptions: '='
 
       link: (scope, element, attrs, ctrl) =>
         @mapPromise(scope, ctrl).then (map) =>
           return $log.error 'No polygons to bind to!' unless scope.polygons
           return $log.error 'Free Draw Polygons must be of type Array!' unless _.isArray scope.polygons
-          freeHand = new DrawFreeHandChildModel map, scope.originalMapOpts
+          freeHand = new DrawFreeHandChildModel map, scope.revertmapoptions
           listener = undefined
           scope.draw = ->
             #clear watch only watch when we are finished drawing/engaging
@@ -29,9 +30,9 @@ angular.module('uiGmapgoogle-maps.directives.api')
               #we are done drawing, now watch for changes on polygons, on post draw
               firstTime = true
               listener =
-                scope.$watch 'polygons', (newValue, oldValue) ->
+                scope.$watchCollection 'polygons', (newValue, oldValue) ->
                   #preven infinite loop on watching
-                  if firstTime
+                  if firstTime or newValue == oldValue
                     firstTime = false
                     return
                   removals = uiGmapLodash.differenceObjects oldValue, newValue

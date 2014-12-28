@@ -5,43 +5,60 @@
         .module('app.home')
         .controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['angularLoad', 'dataservice', 'logger', '$q'];
+    homeCtrl.$inject = ['angularLoad', 'logger', 'dataservice', 'Azureservice', '$scope'];
 
-    function homeCtrl(angularLoad, dataservice, logger, $q) {
-
-        /*jshint validthis: true */
+    function homeCtrl(angularLoad, logger, dataservice, Azureservice, $scope) {
         var vm = this;
         vm.featuredAgents = [];
-        vm.latestApartments = [];
+        $scope.featuredAgents = null;
+        $scope.latestApartments = [];
 
-
+        
         activate();
+
+        if ($scope.featuredAgents) {
+            logger.info('Data Already Loaded');
+        }
+        else {
+            getAgents();
+        }
 
         function activate() {
 //            Using a resolver on all routes or dataservice.ready in every controller
-                var promises = [getFeaturedAgents(), getLatestApartments()];
+            var promises = [getLatestApartments()];
             return dataservice.ready(promises).then(function(){
-            //return $q.all(promises).then(function() {
+            //return $q.all(promises).then(function () {
                 logger.info('Activated data View');
             });
+           }
+
+        function getAgents() {
+            Azureservice.query('person', {})
+               .then(function (item) {
+                       $scope.featuredAgents = item;                   
+                   console.log($scope.featuredAgents);
+               }), function (err) {
+                   logger.info('There was an error quering Azure ' + err)
+               }
         }
 
-        function getFeaturedAgents() {
-            return dataservice.getFeaturedAgents().then(function(data) {
-                vm.featuredAgents = data;
-                return vm.featuredAgents;
-            });
-        }
+            
 
         function getLatestApartments() {
-            return dataservice.getLatestApartments().then(function(data) {
-                vm.latestApartments = data;
-                return vm.latestApartments;
-            });
+            return Azureservice.query('apartment', { take: 4 })
+                .then(function (item) {
+                    $scope.latestApartments = item;
+                    console.log($scope.latestApartments);
+                }), function (err) {
+                    logger.info('There was an error quering Azure ' + err)
+                }
         }
 
+       
         /**load scripts and css here **/
-        angularLoad.loadScript('javascripts/scripts.js')
-    }
+        angularLoad.loadScript('javascripts/scripts.js');
+
+
+    }      
 })();
 

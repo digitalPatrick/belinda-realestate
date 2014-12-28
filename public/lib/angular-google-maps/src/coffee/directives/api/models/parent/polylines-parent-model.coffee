@@ -1,14 +1,14 @@
-angular.module("uiGmapgoogle-maps.directives.api.models.parent")
-.factory "uiGmapPolylinesParentModel", ["$timeout", "uiGmapLogger",
-  "uiGmapModelKey", "uiGmapModelsWatcher", "uiGmapPropMap",
-  "uiGmapPolylineChildModel", "uiGmap_async",
-  ($timeout, Logger, ModelKey, ModelsWatcher, PropMap, PolylineChildModel, _async) ->
+angular.module('uiGmapgoogle-maps.directives.api.models.parent')
+.factory 'uiGmapPolylinesParentModel', ['$timeout', 'uiGmapLogger',
+  'uiGmapModelKey', 'uiGmapModelsWatcher', 'uiGmapPropMap',
+  'uiGmapPolylineChildModel', 'uiGmap_async', 'uiGmapPromise',
+  ($timeout, $log, ModelKey, ModelsWatcher, PropMap, PolylineChildModel, _async, uiGmapPromise) ->
     class PolylinesParentModel extends ModelKey
       @include ModelsWatcher
       constructor: (@scope, @element, @attrs, @gMap, @defaults) ->
         super(scope)
         self = @
-        @$log = Logger
+        @$log = $log
         @plurals = new PropMap()
         @scopePropNames = [
           'path'
@@ -34,36 +34,48 @@ angular.module("uiGmapgoogle-maps.directives.api.models.parent")
       watch: (scope, name, nameKey) =>
         scope.$watch name, (newValue, oldValue) =>
           if (newValue != oldValue)
-            @[nameKey] = if typeof newValue == 'function' then newValue() else newValue
-            _async.waitOrGo @, =>
-              _async.each _.values(@plurals), (model) =>
+            maybeCanceled =  null
+            @[nameKey] = if _.isFunction newValue then newValue() else newValue
+
+            _async.promiseLock @, uiGmapPromise.promiseTypes.update, "watch #{name} #{nameKey}"
+            , ((canceledMsg) -> maybeCanceled = canceledMsg)
+            , =>
+              _async.each @plurals.values(), (model) =>
                 model.scope[name] = if @[nameKey] == 'self' then model else model[@[nameKey]]
+                maybeCanceled
+              , false
+
 
       watchModels: (scope) =>
-        scope.$watch 'models', (newValue, oldValue) =>
+        scope.$watchCollection 'models', (newValue, oldValue) =>
           #check to make sure that the newValue Array is really a set of new objects
-          unless _.isEqual(newValue, oldValue)
-              if @doINeedToWipe(newValue)
-                  @rebuildAll(scope, true, true)
-              else
-                  @createChildScopes(false)
-        , true
+          unless _.isEqual(newValue, oldValue) and (@lastNewValue != newValue or @lastOldValue != oldValue)
+            @lastNewValue = newValue
+            @lastOldValue = oldValue
+            if @doINeedToWipe(newValue)
+              @rebuildAll(scope, true, true)
+            else
+              @createChildScopes(false)
 
       doINeedToWipe: (newValue) =>
         newValueIsEmpty = if newValue? then newValue.length == 0 else true
         @plurals.length > 0 and newValueIsEmpty
 
       rebuildAll: (scope, doCreate, doDelete) =>
-        _async.waitOrGo @, =>
-          _async.each @plurals.values(), (model) =>
-            model.destroy()
-          .then => #handle done callBack
+        @onDestroy(doDelete).then =>
+          @createChildScopes() if doCreate
+
+      onDestroy: (doDelete) =>
+        _async.promiseLock @, uiGmapPromise.promiseTypes.delete, undefined, undefined, =>
+          _async.each @plurals.values(), (child) =>
+            child.destroy true #to make sure it is really dead, otherwise watchers can kick off (artifacts in path create)
+          , false
+          .then =>
             delete @plurals if doDelete
             @plurals = new PropMap()
-            @createChildScopes() if doCreate
 
       watchDestroy: (scope)=>
-        scope.$on "$destroy", =>
+        scope.$on '$destroy', =>
           @rebuildAll(scope, false, true)
 
       watchOurScope: (scope) =>
@@ -74,7 +86,7 @@ angular.module("uiGmapgoogle-maps.directives.api.models.parent")
 
       createChildScopes: (isCreatingFromScratch = true) =>
         if angular.isUndefined(@scope.models)
-          @$log.error("No models to create polylines from! I Need direct models!")
+          @$log.error('No models to create Polylines from! I Need direct models!')
           return
 
         if @gMap?
@@ -98,32 +110,47 @@ angular.module("uiGmapgoogle-maps.directives.api.models.parent")
         if @firstTime
           @watchModels scope
           @watchDestroy scope
-        _async.waitOrGo @, =>
+
+        return if @didQueueInitPromise(@,scope)
+
+        #allows graceful fallout of _async.each
+        maybeCanceled = null
+        _async.promiseLock @, uiGmapPromise.promiseTypes.create, 'createAllNew', ((canceledMsg) -> maybeCanceled = canceledMsg), =>
           _async.each scope.models, (model) =>
             @createChild(model, @gMap)
-        .then => #handle done callBack
-          @firstTime = false
-          @existingPieces = undefined
+            if maybeCanceled
+              $log.debug 'createNew should fall through safely'
+            maybeCanceled
+          .then =>
+            #handle done callBack
+            @firstTime = false
 
       pieceMeal: (scope, isArray = true)=>
-        doChunk = if @existingPieces? then false else _async.defaultChunkSize
+        return if scope.$$destroyed
+        #allows graceful fallout of _async.each
+        maybeCanceled = null
+        payload = null
         @models = scope.models
         if scope? and scope.models? and scope.models.length > 0 and @plurals.length > 0
-          @figureOutState @idKey, scope, @plurals, @modelKeyComparison, (state) =>
-            payload = state
-            _async.waitOrGo @, =>
-              _async.each payload.removals, (id)=>
-                child = @plurals[id]
+          _async.promiseLock @, uiGmapPromise.promiseTypes.update, 'pieceMeal', ((canceledMsg) -> maybeCanceled = canceledMsg), =>
+            uiGmapPromise.promise( => @figureOutState @idKey, scope, @plurals, @modelKeyComparison)
+            .then (state) =>
+              payload = state
+              _async.each payload.removals, (id) =>
+                child = @plurals.get(id)
                 if child?
                   child.destroy()
                   @plurals.remove(id)
-              .then =>
-                #add all adds via creating new ChildMarkers which are appended to @markers
-                _async.each payload.adds, (modelToAdd) =>
-                  @createChild(modelToAdd, @gMap)
-              .then =>
-                @existingPieces = undefined
+                  maybeCanceled
+            .then =>
+              #add all adds via creating new ChildMarkers which are appended to @markers
+              _async.each payload.adds, (modelToAdd) =>
+                if maybeCanceled
+                  $log.debug 'pieceMeal should fall through safely'
+                @createChild(modelToAdd, @gMap)
+                maybeCanceled
         else
+          @inProgress = false
           @rebuildAll(@scope, true, true)
 
       createChild: (model, gMap)=>
@@ -132,14 +159,18 @@ angular.module("uiGmapgoogle-maps.directives.api.models.parent")
 
         childScope.$watch('model', (newValue, oldValue) =>
           if(newValue != oldValue)
-              @setChildScope(childScope, newValue)
+            @setChildScope(childScope, newValue)
         , true)
 
         childScope.static = @scope.static
         child = new PolylineChildModel childScope, @attrs, gMap, @defaults, model
 
         unless model[@idKey]?
-          @$log.error("Polyline model has no id to assign a child to. This is required for performance. Please assign id, or redirect id to a different key.")
+          @$log.error """
+            Polyline model has no id to assign a child to.
+            This is required for performance. Please assign id,
+            or redirect id to a different key.
+          """
           return
         @plurals.put(model[@idKey], child)
         child
@@ -153,5 +184,5 @@ angular.module("uiGmapgoogle-maps.directives.api.models.parent")
         childScope.model = model
 
       modelKeyComparison: (model1, model2) =>
-        _.isEqual @evalModelHandle(model1, @scope.path), @evalModelHandle(model2,@scope.path)
-  ]
+        _.isEqual @evalModelHandle(model1, @scope.path), @evalModelHandle(model2, @scope.path)
+]

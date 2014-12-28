@@ -12,6 +12,15 @@
         });
     }])
     
+    core.config(['$httpProvider', function ($httpProvider) { // coniguring the httpProvider
+        //$httpProvider.defaults.headers.common['X-ZUMO-APPLICATION'] = 'WwagBdZdumvDaYLGlNYWBovNCAAoBT42'; // add the application key
+        $httpProvider.defaults.headers.common['Content-Type'] = 'Application/json';
+    }]);
+
+    core.config(function (paginationTemplateProvider) {
+        paginationTemplateProvider.setPath('lib/angular-utils-pagination/dirPagination.tpl.html')
+    })
+
     core.config(toastrConfig);
 
     /* @ngInject */

@@ -8,6 +8,7 @@
         'ngMessages',
         'angularLoad',
         'uiGmapgoogle-maps',
+        'angularUtils.directives.dirPagination',
 
         'blocks.exception',
         'blocks.logger'

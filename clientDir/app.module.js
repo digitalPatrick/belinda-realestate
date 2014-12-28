@@ -8,6 +8,8 @@
         'app.home',
         'app.contact',
         'app.agent',
-        'app.singleview'
+        'app.singleview',
+        'app.layout',
+        'azure-mobile-service.module',
     ]);
 })();

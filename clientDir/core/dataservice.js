@@ -5,9 +5,10 @@
         .module('app.core')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$http', '$location', '$q', 'exception', 'logger'];
+    dataservice.$inject = ['$http', '$location', '$q', 'exception', 'logger', 'Azureservice'];
 
-    function dataservice($http, $location, $q, exception, logger) {
+    function dataservice($http, $location, $q, exception, logger, Azureservice) {
+
         var isPrimed = false;
         var primePromise;
 
@@ -18,6 +19,7 @@
         };
 
         return service;
+
 
         function getAvengers() {
             return $http.get('/api/maa')
